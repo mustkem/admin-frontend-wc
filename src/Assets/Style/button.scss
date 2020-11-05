@@ -1,0 +1,159 @@
+// .btn-idle {
+//   border: 1px solid #4d148c;
+// }
+
+// .btn-medium {
+//   padding: 1px 15px;
+//   font-size: 13px;
+//   height: 28px;
+// }
+
+// .btn-small {
+//   padding: 2px 10px;
+//   font-size: 12px;
+//   border: 0px solid #000;
+//   background: $primary-theme-color;
+//   margin-bottom: 5px;
+//   color: #fff;
+//   border-radius: 0;
+// }
+
+// .btn-primary {
+//   color: #fff;
+//   background-color: $primary-theme-color;
+//   border-color: $primary-theme-color;
+// }
+
+// .btn-primary,
+// .btn-primary:hover,
+// .btn-primary.disabled,
+// .btn-primary:disabled,
+// .btn-primary:not(:disabled):not(.disabled):active,
+// .btn-primary:not(:disabled):not(.disabled).active,
+// .show > .btn-primary.dropdown-toggle {
+//   color: #fff;
+//   background-color: $primary-theme-color;
+//   border-color: $primary-theme-color;
+// }
+
+// .btn-primary:focus,
+// .btn-primary.focus,
+// .btn-primary:not(:disabled):not(.disabled):active:focus,
+// .btn-primary:not(:disabled):not(.disabled).active:focus,
+// .show > .btn-primary.dropdown-toggle:focus {
+//   box-shadow: none;
+//   color: #333;
+//   background-color: #fff;
+// }
+
+// .btn-outline-primary,
+// .btn-outline-primary:hover {
+//   color: $primary-color;
+//   background-color: transparent;
+//   background-image: none;
+//   border-color: $primary-color;
+// }
+
+// .btn-outline-primary:focus,
+// .btn-outline-primary.focus {
+//   box-shadow: 0 0 0 0.2rem $primary-bg-color;
+// }
+
+// .btn-outline-primary.disabled,
+// .btn-outline-primary:disabled {
+//   color: $primary-color;
+//   background-color: transparent;
+// }
+
+// .btn-outline-primary:not(:disabled):not(.disabled):active,
+// .btn-outline-primary:not(:disabled):not(.disabled).active,
+// .show > .btn-outline-primary.dropdown-toggle {
+//   color: $primary-color;
+//   background-color: $primary-bg-color;
+//   border-color: $primary-bg-color;
+// }
+
+// .btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+// .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
+// .show > .btn-outline-primary.dropdown-toggle:focus {
+//   box-shadow: 0 0 0 0.2rem $primary-bg-color;
+// }
+
+// .login-btn {
+//   margin-right: 15px;
+// }
+
+// .sign-up-btn a:hover,
+// .button.sign-up-btn:active,
+// .sign-up-btn:focus {
+//   text-decoration: none;
+//   box-sizing: border-box;
+//   color: #fff;
+//   background-color: #ff6600;
+// }
+
+// .button.sign-up-btn {
+//   padding: 0;
+// }
+
+// .sign-up-btn a {
+//   color: #fff;
+//   display: block;
+//   padding: 0 48px;
+// }
+
+// button.link-btn {
+//   padding: 0;
+//   a {
+//     padding: 5px 15px;
+//     display: block;
+//     color: #fff;
+//   }
+// }
+
+// .btn-save {
+//   color: #fff;
+//   background-color: #4d148c;
+//   padding: 5px 13px;
+//   font-size: 14px;
+// }
+// .btn-save:hover {
+//   color: #fff;
+//   background-color: #4d148c;
+// }
+
+// .btn {
+//   border-radius: 0;
+// }
+
+.login-btn {
+  display: flex;
+  align-items: center;
+}
+
+.spinner.small {
+  width: 15px;
+  height: 15px;
+  border-width: 2px;
+  margin-left: 10px;
+}
+
+.p-10 {
+  padding: 10px;
+}
+
+.m-0-auto {
+  margin: 0 auto;
+}
+
+.wd-100 {
+  width: 100px;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+.mb-100 {
+  margin-bottom: 100px;
+}

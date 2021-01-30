@@ -1,41 +1,40 @@
-import React, { useRef, useEffect } from "react";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import { Formik, Form, useField } from "formik";
-import * as Yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
-import { path } from "ramda";
-import { login } from "../../store/actions";
-import { parse } from "query-string";
-import { useHistory, useParams, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Button, Form } from "react-bootstrap";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
-import Layout from "../Layout/Layout";
-import ButtonSpinner from "../Shared/ButtonSpinner";
+import { API_URL } from "../../config";
 
-const MyTextInput = ({ label, ...props }) => {
-  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-  // which we can spread on <input> and also replace ErrorMessage entirely.
-  const [field, meta] = useField(props);
-  return (
-    <div className="ip-field-wrp">
-      <label htmlFor={props.id || props.name}>{label}</label>
-      <input className="text-input" {...field} {...props} />
-      {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
-    </div>
-  );
-};
+function Login(props) {
+  const [formDataLogin, setFormData] = useState({ phone_num: "", password: "" });
+  const history = useHistory();
 
-function Login() {
-  const dispatch = useDispatch();
-  const loading = useSelector((state) => {
-    return path(["user", "user", "loading"], state);
-  });
+  const handleChangeLogin = (key, e) => {
+    const updatedFormData = { ...formDataLogin };
 
-  const myFormRef = useRef(null);
+    updatedFormData[key] = e.target.value;
 
-  let history = useHistory();
-  const location = useLocation();
-  const query = parse(location.search);
+    setFormData(updatedFormData);
+  };
+
+  const handleSubmitLogin = (e) => {
+    e.preventDefault();
+
+    axios({
+      method: "post",
+      url: API_URL + "/auth/login",
+      data: formDataLogin,
+    })
+      .then(function (response) {
+        localStorage.setItem("woodenculture-token-admin", response.data.token);
+        history.push("/dashboard/add-product");
+
+        return response.data;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="login-page">
@@ -43,58 +42,35 @@ function Login() {
         <div class="log-form medium-size">
           <div className="inner-wrp">
             <h2>Admin</h2>
-            <Formik
-              initialValues={{
-                password: "",
-                email: "",
-              }}
-              validationSchema={Yup.object({
-                password: Yup.string()
-                  .max(15, "Must be 15 characters or less")
-                  .required("Required"),
-                email: Yup.string().email("Invali`d email address").required("Required"),
-              })}
-              onSubmit={(values, { setSubmitting }) => {
-                setSubmitting(false);
-                const formNode = myFormRef.current;
-                formNode.querySelectorAll("input").forEach((item) => {
-                  item.blur();
-                });
-
-                dispatch(login(values)).then(() => {
-                  if (query["target-url"]) {
-                    history.push(query["target-url"]);
-                  } else {
-                    history.push("/dashboard/orders");
-                  }
-                });
-              }}
-            >
-              <Form ref={myFormRef}>
-                <MyTextInput
-                  // autoFocus
-                  className="form-control"
-                  label="Email Address"
-                  name="email"
-                  type="email"
-                  placeholder="Email"
+            <Form onSubmit={handleSubmitLogin}>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Mobile Number</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter mobile number"
+                  onChange={(e) => {
+                    handleChangeLogin("phone_num", e);
+                  }}
+                  value={formDataLogin.phone_num}
                 />
-
-                <MyTextInput
-                  className="form-control"
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
                   type="text"
                   placeholder="Password"
-                  label="Password"
-                  name="password"
+                  onChange={(e) => {
+                    handleChangeLogin("password", e);
+                  }}
+                  value={formDataLogin.password}
                 />
-                <div className="btn-wrp">
-                  <Button className="align-right login-btn" type="submit">
-                    <span>Login</span>
-                    {loading && <ButtonSpinner />}
-                  </Button>
-                </div>
-              </Form>
-            </Formik>
+              </Form.Group>
+              <div className="button-grp">
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </div>
+            </Form>
           </div>
         </div>
       </div>

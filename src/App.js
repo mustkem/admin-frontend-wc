@@ -14,18 +14,11 @@ import "./Assets/Style/myAccount/myAccount.scss";
 
 import { appStore } from "./store";
 
-import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
 import Signup from "./Components/SignUp/SignUp";
 
-/* User Account */
-import AccountType from "./Components/Common/UserAccountType";
-import SignupPartner from "./Components/SignUpPartner/SignUpPartner";
-import TransporterSignUp from "./Components/SignUp/TransporterSignUp/TransporterSignUp";
-import ConfirmOrder from "./Components/ConfirmOrder";
-
 /* Admin account */
-import AdminAccount from "./Components/AdminAccount";
+import AdminAccount from "./Components/UserAccount";
 
 function App() {
   return (
@@ -42,7 +35,7 @@ function App() {
                   <Login />
                 </Route>
                 <Route path="/dashboard">
-                  <AccountType />
+                  <AdminAccount />
                 </Route>
               </Switch>
             </div>

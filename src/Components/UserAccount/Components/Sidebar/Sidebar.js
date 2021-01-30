@@ -40,6 +40,12 @@ function Sidebar() {
             <span>Products</span>
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/dashboard/add-product">
+            <FiHeadphones />
+            <span>Add Product</span>
+          </NavLink>
+        </li>
       </ul>
     </div>
   );

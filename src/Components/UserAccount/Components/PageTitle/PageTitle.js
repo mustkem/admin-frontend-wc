@@ -47,12 +47,12 @@ function PageTitle(props) {
     <div className="app-page-title">
       <div className="page-title-wrapper">
         <div className="page-title-heading">
-          <div className="page-title-icon">
+          {/* <div className="page-title-icon">
             {IconComponent && (
               <IconComponent className="pe-7s-drawer icon-gradient bg-happy-itmeo" />
             )}
           </div>
-          <div>{pageTypeDetails && pageTypeDetails.label}</div>
+          <div>{pageTypeDetails && pageTypeDetails.label}</div> */}
         </div>
       </div>
     </div>

@@ -28,11 +28,9 @@ body {
   padding: 0 12px;
   display: flex;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   justify-content: space-between;
-  box-shadow: 0 0.46875rem 2.1875rem rgba(8, 10, 37, 0.03),
-    0 0.9375rem 1.40625rem rgba(8, 10, 37, 0.03), 0 0.25rem 0.53125rem rgba(8, 10, 37, 0.05),
-    0 0.125rem 0.1875rem rgba(8, 10, 37, 0.03);
+  box-shadow: 0px 0px 6px 1px #cbcbcb;
   .logo {
     padding: 0;
     a {
@@ -101,6 +99,9 @@ body {
   display: flex;
 
   .sidebar {
+    box-shadow: 0px 0px 10px -5px #959595;
+    position: relative;
+    z-index: 1;
     background-color: #fff;
     height: 100vh;
     .nav-bar {
@@ -155,6 +156,7 @@ body {
 }
 
 .app-page-title {
+  box-shadow: 0px 0px 10px -5px #959595;
   background: hsla(0, 0%, 100%, 0.55);
   padding: 30px;
   position: relative;
@@ -761,7 +763,7 @@ h6 {
   .btn-wrp {
     display: flex;
   }
-  ul{
-    color:#000;
+  ul {
+    color: #000;
   }
 }

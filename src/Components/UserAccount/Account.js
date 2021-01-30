@@ -5,12 +5,9 @@ import Dashboard from "./Components/Dashboard";
 import MyAccountContentLayout from "./Components/MyAccountContentLayout";
 
 import Layout from "./Components/MyAccountLayout/MyAccountLayout";
-import Billing from "./Components/Billing";
 import Orders from "./Components/Orders";
 import OrderDetail from "./Components/OrderDetail";
-import Support from "./Components/Support";
-import AddOrder from "./Components/AddOrder";
-import ShipOrder from "./Components/ShipOrder";
+import AddProduct from "./Components/AddProduct";
 import Profile from "./Components/Profile";
 
 function UserAccount() {
@@ -19,14 +16,9 @@ function UserAccount() {
   return (
     <Layout>
       <Switch>
-        <Route path={`${path}/orders/add-order`}>
+        <Route path={`${path}/add-product`}>
           <MyAccountContentLayout pageType="addOrder">
-            <AddOrder />
-          </MyAccountContentLayout>
-        </Route>
-        <Route path={`${path}/orders/ship-order/:id`}>
-          <MyAccountContentLayout pageType="shipOrder">
-            <ShipOrder />
+            <AddProduct />
           </MyAccountContentLayout>
         </Route>
         <Route path={`${path}/orders/:id`}>
@@ -39,16 +31,7 @@ function UserAccount() {
             <Orders />
           </MyAccountContentLayout>
         </Route>
-        <Route path={`${path}/billing`}>
-          <MyAccountContentLayout pageType="billing">
-            <Billing />
-          </MyAccountContentLayout>
-        </Route>
-        <Route path={`${path}/support`}>
-          <MyAccountContentLayout pageType="support">
-            <Support />
-          </MyAccountContentLayout>
-        </Route>
+
         <Route path={`${path}/profile`}>
           <MyAccountContentLayout pageType="profileDetails">
             <Profile />

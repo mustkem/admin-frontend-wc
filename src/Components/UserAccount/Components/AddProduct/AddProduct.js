@@ -14,7 +14,7 @@ function AddProduct(props) {
   console.log("token", localStorage.getItem("woodenculture-token-admin"));
   const [features, setFeatures] = React.useState([{ title: "", desc: "" }]);
   const [images, setImages] = React.useState([{ url: "" }]);
-  const [categories, setCategories] = React.useState([]);
+  const [categories, setCategories] = React.useState([options[2], options[0]]);
 
   const [formData, setFormData] = React.useState({
     title: "",
@@ -53,9 +53,11 @@ function AddProduct(props) {
 
       features,
       images,
-      categories,
+      categories: categories.map((item) => {
+        return { id: item.value };
+      }),
     };
-    console.log("payload", payload);
+    console.log("payload", JSON.stringify(payload));
   };
 
   const handleChange = (key, e) => {
@@ -103,7 +105,7 @@ function AddProduct(props) {
           <Form.Group controlId="formGridAddress1">
             <Form.Label>Categories</Form.Label>
             <Select
-              defaultValue={[options[2], options[0]]}
+              defaultValue={categories}
               isMulti
               name="categories"
               options={options}

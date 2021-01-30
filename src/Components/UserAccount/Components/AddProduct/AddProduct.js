@@ -158,7 +158,7 @@ function AddProduct(props) {
               })}
             </Row>
             <div className="flex justify-end">
-              <Button variant="outline-primary" onClick={handleAddMoreFeatures}>
+              <Button size="sm" variant="outline-primary" onClick={handleAddMoreFeatures}>
                 Add More Features
               </Button>
             </div>
@@ -197,7 +197,7 @@ function AddProduct(props) {
               })}
             </Row>
             <div className="flex justify-end">
-              <Button variant="outline-primary" onClick={handleAddMoreImage}>
+              <Button size="sm" variant="outline-primary" onClick={handleAddMoreImage}>
                 Add More Imges
               </Button>
             </div>

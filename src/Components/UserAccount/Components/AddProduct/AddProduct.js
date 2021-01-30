@@ -147,9 +147,9 @@ function AddProduct(props) {
                             handleRemoveFeature(index);
                           }}
                           size="sm"
-                          variant="outline-danger"
+                          variant="outline-secondary"
                         >
-                          X
+                          x
                         </Button>
                       </div>
                     </Form.Group>
@@ -186,9 +186,9 @@ function AddProduct(props) {
                             handleRemoveImage(index);
                           }}
                           size="sm"
-                          variant="outline-danger"
+                          variant="outline-secondary"
                         >
-                          X
+                          x
                         </Button>
                       </div>
                     </Form.Group>

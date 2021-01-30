@@ -4,6 +4,9 @@ import { Provider } from "react-redux";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import "react-datepicker/dist/react-datepicker.css";
 import "./Assets/Style/Style.scss";
 import theme from "./MaterialUI/theme";
@@ -42,6 +45,7 @@ function App() {
           </Router>
         </ThemeProvider>
       </div>
+      <ToastContainer />
     </Provider>
   );
 }

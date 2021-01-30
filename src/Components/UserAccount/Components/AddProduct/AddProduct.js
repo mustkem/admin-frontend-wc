@@ -1,8 +1,13 @@
 import React from "react";
 import { Form, Col, Row, Button } from "react-bootstrap";
 import Select from "react-select";
+import { toast } from "react-toastify";
 
 import "./style/index.scss";
+
+import axios from "axios";
+
+import { API_URL } from "../../../../config";
 
 const options = [
   { value: "chocolate", label: "Chocolate" },
@@ -54,10 +59,30 @@ function AddProduct(props) {
       features,
       images,
       categories: categories.map((item) => {
-        return { id: item.value };
+        return { cateId: item.value };
       }),
     };
     console.log("payload", JSON.stringify(payload));
+
+    axios({
+      method: "post",
+      url: API_URL + "/admin/product",
+      data: payload,
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("woodenculture-token-admin"),
+      },
+    })
+      .then(function (response) {
+        setFeatures([{ title: "", desc: "" }]);
+        setImages([{ url: "" }]);
+        setCategories([]);
+        setFormData({ title: "", description: "" });
+        toast("Product added successfully");
+        return response.data;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   const handleChange = (key, e) => {

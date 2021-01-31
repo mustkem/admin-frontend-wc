@@ -9,17 +9,11 @@ import axios from "axios";
 
 import { API_URL } from "../../../../config";
 
-const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
-];
-
 function AddProduct(props) {
-  console.log("token", localStorage.getItem("woodenculture-token-admin"));
   const [features, setFeatures] = React.useState([{ title: "", desc: "" }]);
   const [images, setImages] = React.useState([{ url: "" }]);
-  const [categories, setCategories] = React.useState([options[2], options[0]]);
+  const [categories, setCategories] = React.useState();
+  const [allCategories, setAllCategories] = React.useState([]);
 
   const [formData, setFormData] = React.useState({
     title: "",
@@ -95,7 +89,29 @@ function AddProduct(props) {
     setCategories(selectedOptions);
   };
 
-  console.log("features", features);
+  React.useEffect(() => {
+    axios({
+      method: "get",
+      url: API_URL + "/common/categories",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("woodenculture-token-admin"),
+      },
+    })
+      .then(function (response) {
+        setAllCategories(
+          response.data.categories.map((item) => {
+            return {
+              label: item.title,
+              value: item._id,
+            };
+          })
+        );
+        return response.data;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div className="middle-layout-strip">
@@ -130,10 +146,9 @@ function AddProduct(props) {
           <Form.Group controlId="formGridAddress1">
             <Form.Label>Categories</Form.Label>
             <Select
-              defaultValue={categories}
               isMulti
               name="categories"
-              options={options}
+              options={allCategories}
               className="basic-multi-select"
               classNamePrefix="select"
               onChange={handleChangeCategories}

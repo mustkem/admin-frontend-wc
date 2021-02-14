@@ -34,6 +34,7 @@ function Queries(props) {
           <li>
             <span>Product Id</span>
             <span>Product Name</span>
+            <span>Phone Number</span>
             <span>User Id</span>
             <span>Note</span>
           </li>
@@ -42,6 +43,7 @@ function Queries(props) {
               <li>
                 <span>{item?.product?.title}</span>
                 <span>{item?.product?._id}</span>
+                <span>{item?.phoneNum}</span>
                 <span>{item?.user?._id}</span>
                 <span>{item.note}</span>
               </li>

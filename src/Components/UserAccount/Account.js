@@ -9,6 +9,7 @@ import Orders from "./Components/Orders";
 import OrderDetail from "./Components/OrderDetail";
 import AddProduct from "./Components/AddProduct";
 import Profile from "./Components/Profile";
+import Queries from "./Components/Queries";
 
 function UserAccount() {
   let { path } = useRouteMatch();
@@ -19,6 +20,11 @@ function UserAccount() {
         <Route path={`${path}/add-product`}>
           <MyAccountContentLayout pageType="addOrder">
             <AddProduct />
+          </MyAccountContentLayout>
+        </Route>
+        <Route path={`${path}/queries`}>
+          <MyAccountContentLayout pageType="queries">
+            <Queries />
           </MyAccountContentLayout>
         </Route>
         <Route path={`${path}/orders/:id`}>

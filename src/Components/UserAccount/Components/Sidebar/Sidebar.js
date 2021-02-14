@@ -26,6 +26,12 @@ function Sidebar() {
             <span>Categories</span>
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/dashboard/queries">
+            <FiHeadphones />
+            <span>Queries</span>
+          </NavLink>
+        </li>
 
         <li>
           <NavLink to="/dashboard/billing">

@@ -8,7 +8,7 @@ export default class extends React.Component {
       <div>
         <header className="header primary-header clearfix">
           <div className="logo">
-            <Link to="">SHIPCENT</Link>
+            <Link to="">Wooden Culture</Link>
           </div>
           <div className="nav-section">
             <ul className="clearfix">
@@ -27,13 +27,6 @@ export default class extends React.Component {
           </div>
 
           <div className="right-pannel">
-            <ul className="clearfix track-shipment">
-              <li>
-                <Link to="/" className="link ">
-                  Track Your Shipment{" "}
-                </Link>
-              </li>
-            </ul>
             <ul className="clearfix user-sec">
               <li className="login-btn">
                 <Link to="/login">Login</Link>

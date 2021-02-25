@@ -19,16 +19,10 @@ function Header() {
     <header className="account-header">
       <div className="left-panel">
         <div className="logo">
-          <a href="">SHIPCENT</a>
+          <a href="">Wooden Culture</a>
         </div>
       </div>
       <div className="right-panel">
-        <div className="panel-item">
-          <a href="">Rate Calculator</a>
-        </div>
-        <div className="panel-item">
-          <a href="">Track your Shipment</a>
-        </div>
         {/* <div className="panel-item">
                     <FaRupeeSign />
                     <span className="amount">

@@ -57,9 +57,7 @@ function Order(props) {
       </div>
 
       <div className="detail-row">
-        <div className="row">
-          <div className="col-12 title-main">Tracking Details</div>
-        </div>
+        <div className="row"></div>
         <div className="status-sec">
           <div className="status-wrp">
             {updatedStatusItems.map((item, index) => {

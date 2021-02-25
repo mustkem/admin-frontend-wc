@@ -29,23 +29,21 @@ function UserAccount() {
         </Route>
         <Route path={`${path}/orders/:id`}>
           <MyAccountContentLayout pageType="orderDetails">
-            <OrderDetail />
+            {/* <OrderDetail /> */}
           </MyAccountContentLayout>
         </Route>
         <Route path={`${path}/orders`}>
-          <MyAccountContentLayout pageType="orders">
-            <Orders />
-          </MyAccountContentLayout>
+          <MyAccountContentLayout pageType="orders">{/* <Orders /> */}</MyAccountContentLayout>
         </Route>
 
         <Route path={`${path}/profile`}>
           <MyAccountContentLayout pageType="profileDetails">
-            <Profile />
+            {/* <Profile /> */}
           </MyAccountContentLayout>
         </Route>
         <Route path={path}>
           <MyAccountContentLayout pageType="dashboard">
-            <Dashboard />
+            {/* <Dashboard /> */}
           </MyAccountContentLayout>
         </Route>
       </Switch>

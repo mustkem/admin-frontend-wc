@@ -11,12 +11,12 @@ function Footer() {
         <div className="footer-wrp">
           <div className="sec about-us">
             <div className="logo">
-              <a href="">SHIPCENT</a>
+              <a href="">Wooden Culture</a>
             </div>
             <ul className="">
               <li>
                 <p>
-                  Shipcent, a product of Stackfoot Retail Solution Pvt. Ltd., is India’s best
+                  Wooden Culture, a product of Stackfoot Retail Solution Pvt. Ltd., is India’s best
                   logistics software, which offers you automated shipping solution. Using this, you
                   can ship anywhere in India and abroad using the best courier company and at
                   discounted rates.
@@ -40,17 +40,7 @@ function Footer() {
             <div className="">
               <h5>More</h5>
             </div>
-            <ul className="">
-              <li>
-                <a href="">Track your order</a>
-              </li>
-              <li>
-                <a href="">Shipping rate Calculator</a>
-              </li>
-              <li>
-                <a href="">NDR Management</a>
-              </li>
-            </ul>
+            <ul className=""></ul>
           </div>
           <div className="sec more info">
             <div className="">
@@ -82,7 +72,7 @@ function Footer() {
               <li>
                 <IoIosMail className="connect-icon" />
 
-                <a href="">support@shipcent.com</a>
+                <a href="">support@woodenculture.com</a>
               </li>
               <li>
                 <FaPhoneVolume className="connect-icon" />
@@ -95,7 +85,7 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div className="copyright">Copyright Ⓒ 2019 Shipcent. All Rights Reserved.</div>
+          <div className="copyright">Copyright Ⓒ 2019 Wooden Culture. All Rights Reserved.</div>
         </div>
       </Container>
     </footer>

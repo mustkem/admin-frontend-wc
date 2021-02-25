@@ -20,12 +20,7 @@ function Sidebar() {
             <span>Dashboard</span>
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/dashboard/orders">
-            <AiOutlineShoppingCart />
-            <span>Categories</span>
-          </NavLink>
-        </li>
+
         <li>
           <NavLink to="/dashboard/queries">
             <FiHeadphones />
@@ -34,18 +29,12 @@ function Sidebar() {
         </li>
 
         <li>
-          <NavLink to="/dashboard/billing">
-            <FaRegMoneyBillAlt />
-            <span>SubCategories</span>
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink to="/dashboard/support">
+          <NavLink to="/dashboard/products">
             <FiHeadphones />
             <span>Products</span>
           </NavLink>
         </li>
+
         <li>
           <NavLink to="/dashboard/add-product">
             <FiHeadphones />

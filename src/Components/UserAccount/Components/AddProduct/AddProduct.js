@@ -11,7 +11,7 @@ import { API_URL } from "../../../../config";
 
 function AddProduct(props) {
   const [features, setFeatures] = React.useState([{ title: "", desc: "" }]);
-  const [images, setImages] = React.useState([{ url: "" }]);
+  const [images, setImages] = React.useState();
   const [categories, setCategories] = React.useState();
   const [allCategories, setAllCategories] = React.useState([]);
 
@@ -39,7 +39,12 @@ function AddProduct(props) {
     payload.append("title", formData.title);
     payload.append("description", formData.description);
     payload.append("features", JSON.stringify(features));
-    payload.append("images", images[0]);
+
+    images &&
+      [...images].forEach((image) => {
+        payload.append("images", image);
+      });
+
     payload.append(
       "categories",
       JSON.stringify(
@@ -49,11 +54,7 @@ function AddProduct(props) {
       )
     );
 
-    console.log("payload", JSON.stringify(payload, null, 3));
-
-    console.log("sdf", images[0]);
-
-    // return false;
+    console.log("images", images);
 
     axios({
       method: "post",
@@ -65,10 +66,10 @@ function AddProduct(props) {
       },
     })
       .then(function (response) {
-        setFeatures([{ title: "", desc: "" }]);
-        setImages([{ url: "" }]);
-        setCategories([]);
-        setFormData({ title: "", description: "" });
+        // setFeatures([{ title: "", desc: "" }]);
+        // setImages();
+        // setCategories([]);
+        // setFormData({ title: "", description: "" });
         toast("Product added successfully");
         return response.data;
       })

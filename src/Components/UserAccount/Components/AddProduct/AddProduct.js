@@ -32,37 +32,35 @@ function AddProduct(props) {
     setFeatures(updatedFeatures);
   };
 
-  const handleAddMoreImage = () => {
-    const updatedImage = [...images];
-    updatedImage.push({ url: "" });
-    setImages(updatedImage);
-  };
-
-  const handleRemoveImage = (index) => {
-    const updatedImage = [...images];
-    updatedImage.splice(index, 1);
-    setImages(updatedImage);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    const payload = {
-      title: formData.title,
-      description: formData.description,
 
-      features,
-      images,
-      categories: categories.map((item) => {
-        return { cateId: item.value };
-      }),
-    };
-    console.log("payload", JSON.stringify(payload));
+    const payload = new FormData();
+    payload.append("title", formData.title);
+    payload.append("description", formData.description);
+    payload.append("features", JSON.stringify(features));
+    payload.append("images", images[0]);
+    payload.append(
+      "categories",
+      JSON.stringify(
+        categories.map((item) => {
+          return { cateId: item.value };
+        })
+      )
+    );
+
+    console.log("payload", JSON.stringify(payload, null, 3));
+
+    console.log("sdf", images[0]);
+
+    // return false;
 
     axios({
       method: "post",
       url: API_URL + "/admin/product",
       data: payload,
       headers: {
+        "Content-Type": "multipart/form-data",
         Authorization: "Bearer " + localStorage.getItem("woodenculture-token-admin"),
       },
     })
@@ -208,41 +206,28 @@ function AddProduct(props) {
           <Form.Group>
             <Form.Label>Images</Form.Label>
             <Row>
-              {images.map((item, index) => {
-                return (
-                  <Col sm={6}>
-                    <Form.Group key={index}>
-                      <Form.Control
-                        type="text"
-                        placeholder="images url"
-                        value={item.url}
-                        onChange={(e) => {
-                          const updatedImages = [...images];
-                          updatedImages[index].url = e.target.value;
-                          setImages(updatedImages);
-                        }}
-                      />
-                      <div className="flex justify-end">
-                        <Button
-                          onClick={() => {
-                            handleRemoveImage(index);
-                          }}
-                          size="sm"
-                          variant="outline-secondary"
-                        >
-                          x
-                        </Button>
-                      </div>
-                    </Form.Group>
-                  </Col>
-                );
-              })}
+              <Col sm={6}>
+                <Form.Group>
+                  <input
+                    placeholder="upload Images"
+                    type="file"
+                    multiple
+                    onChange={(e) => {
+                      setImages(e.target.files);
+                    }}
+                  />
+                  {/* <div className="flex justify-end">
+                    <Button
+                      onClick={() => {
+                        handleRemoveImage(index);
+                      }}
+                      size="sm"
+                      variant="outline-secondary"
+                    ></Button>
+                  </div> */}
+                </Form.Group>
+              </Col>
             </Row>
-            <div className="flex justify-end">
-              <Button size="sm" variant="outline-primary" onClick={handleAddMoreImage}>
-                Add More Imges
-              </Button>
-            </div>
           </Form.Group>
 
           <Button variant="primary" type="submit">

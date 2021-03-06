@@ -1,11 +1,18 @@
 .queries-strip {
   ul span {
-    width: 20%;
+    width: 17%;
     display: inline-block;
     font-size: 12px;
   }
   li {
     padding: 8px;
     border-bottom: 1px solid aliceblue;
+  }
+}
+
+.table {
+  td,
+  tr {
+    padding: 7px 10px;
   }
 }

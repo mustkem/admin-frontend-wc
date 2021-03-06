@@ -30,26 +30,32 @@ function Queries(props) {
     <div className="queries-strip">
       <div className="middle-layout-strip">
         <div className="title">Queries</div>
-        <ul>
-          <li>
-            <span>Product Id</span>
-            <span>Product Name</span>
-            <span>Phone Number</span>
-            <span>User Id</span>
-            <span>Note</span>
-          </li>
-          {queries.map((item) => {
-            return (
-              <li>
-                <span>{item?.product?.title}</span>
-                <span>{item?.product?._id}</span>
-                <span>{item?.phoneNum}</span>
-                <span>{item?.user?._id}</span>
-                <span>{item.note}</span>
-              </li>
-            );
-          })}
-        </ul>
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Product Id</th>
+              <th>Product Name</th>
+              <th>Phone Number</th>
+              <th>User Id</th>
+              <th>Note</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            {queries.map((item) => {
+              return (
+                <tr>
+                  <td>{item?.product?._id}</td>
+                  <td>{item?.product?.title}</td>
+                  <td>{item?.phoneNum}</td>
+                  <td>{item?.user?._id}</td>
+                  <td>{item.note}</td>
+                  <td>{item.type}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </div>
   );

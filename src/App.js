@@ -19,7 +19,7 @@ import { appStore } from "./store";
 
 import Login from "./Components/Login/Login";
 import Signup from "./Components/SignUp/SignUp";
-
+import AdminLogin from "./Components/AdminLogin/AdminLogin";
 /* Admin account */
 import AdminAccount from "./Components/UserAccount";
 
@@ -35,7 +35,8 @@ function App() {
               <Switch>
                 {/* common components */}
                 <Route exact path="/">
-                  <Login />
+                  {/* <Login /> */}
+                  <AdminLogin />
                 </Route>
                 <Route path="/dashboard">
                   <AdminAccount />
